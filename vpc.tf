@@ -50,7 +50,7 @@ resource "aws_ecs_task_definition" "medusa_task" {
   network_mode             = "aws_vpc"
   cpu                      = "512"
   memory                   = "1024"
-  execution_role_arn       = aws_iam_role.ecs_task_execution_role.arn
+  execution_role_arn       = arn:aws:iam::872138406351:role/medusa
 
   container_definitions = jsonencode([
     {
