@@ -1,4 +1,5 @@
 provider "aws" {
+  profile = "promedusa"
   region = "ap-south-1"
 }
 
