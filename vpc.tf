@@ -55,7 +55,7 @@ resource "aws_ecs_task_definition" "medusa_task" {
   container_definitions = jsonencode([
     {
       name      = "medusa",
-      image     = "YOUR_ECR_REPO_URL:latest",
+      image     = "872138406351.dkr.ecr.ap-south-1.amazonaws.com/medusa:latest",
       memory    = 1024,
       cpu       = 512,
       essential = true,
