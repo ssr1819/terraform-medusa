@@ -48,15 +48,15 @@ resource "aws_ecs_cluster" "medusa_cluster" {
 resource "aws_ecs_task_definition" "medusa_task" {
   family                   = "medusa-task"
   requires_compatibilities = ["FARGATE"]
-  network_mode             = "aws_vpc"
+  network_mode             = "awsvpc"
   cpu                      = "512"
   memory                   = "1024"
-  execution_role_arn       = arn:aws:iam::872138406351:role/medusa
+  execution_role_arn       = aws_iam_role.ecs_task_execution_role.arn
 
   container_definitions = jsonencode([
     {
       name      = "medusa",
-      image     = "872138406351.dkr.ecr.ap-south-1.amazonaws.com/medusa:latest",
+      image     = "YOUR_ECR_REPO_URL:latest"
       memory    = 1024,
       cpu       = 512,
       essential = true,
